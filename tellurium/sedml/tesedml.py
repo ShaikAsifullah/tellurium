@@ -1629,7 +1629,7 @@ class SEDMLTools(object):
                 if extension not in [".sedml", '.xml']:
                     raise IOError("SEDML file should have [.sedml|.xml] extension:", inputStr)
                 inputType = cls.INPUT_TYPE_FILE_SEDML
-                doc = libsedml.readSedMLFromFile(inputStr)
+                doc = libsedml.readSedMLFromFile(inputStr.encode('utf8'))
                 cls.checkSEDMLDocument(doc)
                 # working directory is where the sedml file is
                 if workingDir is None:
